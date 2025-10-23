@@ -31,7 +31,19 @@ export const updateProfile = async (data: { username: string }): Promise<boolean
     });
 };
 
-export const getProfile = (): { username: string } => {
-    const saved = localStorage.getItem('mockUsername');
-    return { username: saved || 'admin' };
+const DEFAULT_BALANCE = 100;
+
+export const getBalance = (): number => {
+    const saved = localStorage.getItem('mockBalance');
+    return saved ? parseInt(saved, 10) : DEFAULT_BALANCE;
+};
+
+export const updateBalance = (newBalance: number): void => {
+    localStorage.setItem('mockBalance', newBalance.toString());
+};
+
+export const getProfile = (): { username: string; balance: number } => {
+    const savedUsername = localStorage.getItem('mockUsername');
+    const balance = getBalance();
+    return { username: savedUsername || 'admin', balance };
 };

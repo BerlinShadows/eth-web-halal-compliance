@@ -1,21 +1,24 @@
 'use client';
 
+import GradientBackground from '@/components/GradientBackground';
 import Link from 'next/link';
+
 
 export default function NotFound() {
     return (
         <div
             style={{
-                minHeight: '80vh',
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
                 padding: '2rem',
-                background: 'var(--background)',
+                position: 'relative',
+                zIndex: 1,
             }}
         >
+            <GradientBackground />
             <div
                 style={{
                     fontSize: '6rem',
@@ -62,12 +65,12 @@ export default function NotFound() {
             </Link>
 
             <style jsx>{`
-        @keyframes pulse {
-          0% { opacity: 1; }
-          50% { opacity: 0.6; }
-          100% { opacity: 1; }
-        }
-      `}</style>
+          @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.6; }
+            100% { opacity: 1; }
+          }
+        `}</style>
         </div>
     );
 }

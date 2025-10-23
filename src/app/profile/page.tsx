@@ -9,6 +9,7 @@ export default function ProfilePage() {
     const [loading, setLoading] = useState(true);
     const [editMode, setEditMode] = useState(false);
     const [username, setUsername] = useState('');
+    const [user, setUser] = useState({ username: '', balance: 0 });
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -17,6 +18,7 @@ export default function ProfilePage() {
             window.location.href = '/';
         } else {
             const profile = getProfile();
+            setUser(profile);
             setUsername(profile.username);
             setLoading(false);
         }
@@ -148,9 +150,11 @@ export default function ProfilePage() {
                 <Card interactive>
                     <h3 style={{ fontWeight: '600', marginBottom: '0.5rem', fontSize: '1.125rem' }}>Virtual Balance</h3>
                     <p style={{ fontSize: '1.375rem', fontWeight: '800', margin: '0.5rem 0' }}>
-                        100 <span style={{ fontWeight: '500', fontSize: '1.125rem', color: 'var(--muted)' }}>HalalCoins</span>
+                        {user.balance} <span style={{ fontWeight: '500', fontSize: '1.125rem', color: 'var(--muted)' }}>HalalCoins</span>
                     </p>
-                    <p style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>Earned via participation. Non-withdrawable.</p>
+                    <p style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>
+                        Earned via participation. Non-withdrawable.
+                    </p>
                 </Card>
 
                 <Card interactive>

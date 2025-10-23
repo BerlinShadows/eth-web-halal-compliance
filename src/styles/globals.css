@@ -6,6 +6,9 @@
   --border: #e2e8f0;
   --accent: #7e22ce;
   --accent-hover: #6b21a8;
+  --gradient-animation-duration: 14s;
+  --gradient-start: #818cf8;
+  --gradient-end: #a78bfa;
 }
 
 [data-theme='dark'] {
@@ -16,6 +19,9 @@
   --border: #334155;
   --accent: #a78bfa;
   --accent-hover: #8b5cf6;
+  --gradient-animation-duration: 18s;
+  --gradient-start: #6366f1;
+  --gradient-end: #8b5cf6;
 }
 
 * {
@@ -140,5 +146,19 @@ textarea {
 @media (prefers-color-scheme: dark) {
   .card {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%, 100% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%, 0% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%, 100% 50%;
   }
 }
