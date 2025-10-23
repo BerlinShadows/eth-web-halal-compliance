@@ -1,0 +1,144 @@
+:root {
+  --background: #ffffff;
+  --foreground: #1e293b;
+  --muted: #64748b;
+  --card-bg: #f8fafc;
+  --border: #e2e8f0;
+  --accent: #7e22ce;
+  --accent-hover: #6b21a8;
+}
+
+[data-theme='dark'] {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --muted: #94a3b8;
+  --card-bg: #1e293b;
+  --border: #334155;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  transition: background 0.25s ease, color 0.25s ease;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  position: relative;
+  padding: 0.15em 0;
+}
+
+main p a {
+  text-decoration: none;
+  position: relative;
+}
+
+main p a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+
+main p a:hover::after {
+  width: 100%;
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+nav a,
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+nav a:hover,
+footer a:hover {
+  background: rgba(126, 34, 206, 0.08);
+  color: var(--accent-hover);
+}
+
+[data-theme='dark'] nav a:hover,
+[data-theme='dark'] footer a:hover {
+  background: rgba(167, 139, 250, 0.12);
+  color: var(--accent-hover);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p,
+li {
+  margin-bottom: 1rem;
+}
+
+ul {
+  padding-left: 1.5rem;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button,
+a,
+input,
+textarea {
+  transition: all 0.2s ease;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+  }
+}
