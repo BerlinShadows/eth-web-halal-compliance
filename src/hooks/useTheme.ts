@@ -1,32 +1,30 @@
 import { useEffect, useState } from 'react';
 
+type Theme = 'dark' | 'light';
 const THEME_KEY = 'eth-theme';
+const THEMES: Theme[] = ['dark', 'light'];
 
-export const useTheme = () => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light');
+export function useTheme() {
+    const [theme, setTheme] = useState<Theme>('dark');
 
     useEffect(() => {
-        if (typeof window === 'undefined') return;
-
-        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        const handleChange = () => {
-            if (!localStorage.getItem(THEME_KEY)) {
-                const newTheme = mediaQuery.matches ? 'dark' : 'light';
-                setTheme(newTheme);
-                document.documentElement.setAttribute('data-theme', newTheme);
-            }
-        };
-
-        mediaQuery.addEventListener('change', handleChange);
-        return () => mediaQuery.removeEventListener('change', handleChange);
+        const saved = localStorage.getItem(THEME_KEY) as Theme | null;
+        if (saved && THEMES.includes(saved)) {
+            setTheme(saved);
+        } else {
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            setTheme(systemPrefersDark ? 'dark' : 'light');
+        }
     }, []);
 
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem(THEME_KEY, theme);
+    }, [theme]);
+
     const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        localStorage.setItem(THEME_KEY, newTheme);
-        document.documentElement.setAttribute('data-theme', newTheme);
+        setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
     };
 
     return { theme, toggleTheme };
-};
+}
