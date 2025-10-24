@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { EmailIcon, GitHubIcon, TwitterIcon } from './icons';
+import { EmailIcon, GitHubIcon, TwitterIcon } from './icons/icons';
 
 export default function Footer() {
     return (

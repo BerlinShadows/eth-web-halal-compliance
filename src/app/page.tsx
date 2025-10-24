@@ -1,10 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { login } from '@/lib/auth';
 import { useAuth } from '@/hooks/useAuth';
 import Link from 'next/link';
 import GradientBackground from '@/components/GradientBackground';
+import { BrandsMarquee } from '@/components/BrandsMarquee';
+import Marquee from '@/components/Marquee';
 
 export default function HomePage() {
   const { isAuthenticated } = useAuth();
@@ -13,6 +15,22 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      const disableContextMenu = (e: MouseEvent) => e.preventDefault();
+      const disableSelectStart = (e: Event) => e.preventDefault();
+
+      document.addEventListener('contextmenu', disableContextMenu);
+      document.addEventListener('selectstart', disableSelectStart);
+      document.addEventListener('dragstart', disableSelectStart);
+
+      return () => {
+        document.removeEventListener('contextmenu', disableContextMenu);
+        document.removeEventListener('selectstart', disableSelectStart);
+        document.removeEventListener('dragstart', disableSelectStart);
+      };
+    }
+  }, []);
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -41,6 +59,7 @@ export default function HomePage() {
         }}
       >
         <GradientBackground />
+        <BrandsMarquee />
         <div style={{ position: 'relative', zIndex: 1 }}>
           <h2
             style={{
@@ -137,6 +156,7 @@ export default function HomePage() {
             }
           }
         `}</style>
+        <Marquee />
       </div>
     );
   }
@@ -200,7 +220,7 @@ export default function HomePage() {
         >
           Ethical Web3 gaming powered by sadaqah — not gambling.
         </p>
-
+        <BrandsMarquee />
         <div className="card" style={{ padding: '2rem', borderRadius: '18px' }}>
           <h2 style={{ fontSize: '1.6rem', fontWeight: '700', marginBottom: '1.5rem' }}>Login</h2>
           <form onSubmit={handleLogin}>
@@ -260,6 +280,7 @@ export default function HomePage() {
             </button>
           </form>
         </div>
+        <Marquee />
 
       </div>
     </div>

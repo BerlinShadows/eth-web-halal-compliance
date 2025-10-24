@@ -1,0 +1,55 @@
+.marqueeContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 1.5rem 0;
+    margin: 2rem 0;
+}
+
+.marqueeTrack {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: max-content;
+    min-width: 100%;
+    animation: scrollLeft 20s linear infinite;
+    animation-play-state: running;
+}
+
+.marqueeTrack:hover {
+    animation-play-state: paused;
+}
+
+.brandItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.2rem;
+    flex-shrink: 0;
+}
+
+.brandIcon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.brandIcon:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    filter: drop-shadow(0 4px 12px rgba(37, 117, 252, 0.3));
+}
+
+@keyframes scrollLeft {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}

@@ -1,15 +1,50 @@
 import { useState, useEffect } from 'react';
-import { getCurrentUser } from '@/lib/auth';
+import {
+    getCurrentUser,
+    logout as logoutApi,
+    getProfile,
+} from '@/lib/auth';
 
 export const useAuth = () => {
-    const [user, setUser] = useState<ReturnType<typeof getCurrentUser> | undefined>(undefined);
+    const [user, setUser] = useState<ReturnType<typeof getCurrentUser>>(null);
+    const [profile, setProfile] = useState<ReturnType<typeof getProfile> | null>(null);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        const user = getCurrentUser();
-        setUser(user);
+    const loadAuthData = () => {
+        const currentUser = getCurrentUser();
+        const currentProfile = currentUser ? getProfile() : null;
+        setUser(currentUser);
+        setProfile(currentProfile);
         setLoading(false);
+    };
+
+    useEffect(() => {
+        loadAuthData();
+
+        const handleStorageChange = (e: StorageEvent) => {
+            if (e.key === 'mockAuth' || e.key === 'mockUsername' || e.key === 'mockBalance') {
+                loadAuthData();
+            }
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+        };
     }, []);
 
-    return { user, loading, isAuthenticated: !!user };
+    const logout = async () => {
+        logoutApi();
+        setUser(null);
+        setProfile(null);
+    };
+
+    return {
+        user,
+        profile,
+        loading,
+        isAuthenticated: !!user,
+        logout,
+    };
 };

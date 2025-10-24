@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -38,6 +40,14 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -147,6 +157,36 @@ textarea {
   border-radius: 12px;
   padding: 1.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: #e0e0ff;
+  border: 1px solid #6f42c1;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  line-height: 1;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.nav-button:hover {
+  background: rgba(111, 66, 193, 0.15);
+  color: white;
+  border-color: #8a5cf6;
 }
 
 @media (prefers-color-scheme: dark) {
