@@ -1,0 +1,276 @@
+.terminal {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(30, 30, 46, 0.8);
+    border: 1px solid rgba(111, 66, 193, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.terminal:hover {
+    transform: translateY(-2px);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(111, 66, 193, 0.2);
+}
+
+.header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #8a5cf6, #6f42c1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.balanceBadge {
+    background: rgba(111, 66, 193, 0.2);
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: #e0e0ff;
+}
+
+.balanceBadge span {
+    font-weight: 600;
+    color: #8a5cf6;
+}
+
+.chartContainer {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.chartHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+}
+
+.trend {
+    color: #4ade80;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.chartBody {
+    height: 200px;
+    position: relative;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.chartLine {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8a5cf6, transparent);
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.chartGrid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg, transparent 50%, rgba(255, 255, 255, 0.05) 50%),
+        linear-gradient(0deg, transparent 50%, rgba(255, 255, 255, 0.05) 50%);
+    background-size: 20px 20px;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.tradeSection,
+.bridgeSection {
+    background: rgba(15, 23, 42, 0.6);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.tradeSection:hover,
+.bridgeSection:hover {
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sectionTitle::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #8a5cf6;
+    border-radius: 50%;
+}
+
+.inputGroup {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.amountInput {
+    flex: 1;
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(111, 66, 193, 0.5);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.amountInput:focus {
+    outline: none;
+    border-color: #8a5cf6;
+    box-shadow: 0 0 0 2px rgba(138, 92, 246, 0.2);
+}
+
+.tokenSelect {
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(111, 66, 193, 0.5);
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.tokenSelect:focus {
+    outline: none;
+    border-color: #8a5cf6;
+    box-shadow: 0 0 0 2px rgba(138, 92, 246, 0.2);
+}
+
+.tradeButtons {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tradeBtn {
+    flex: 1;
+    padding: 0.75rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(111, 66, 193, 0.5);
+    border-radius: 12px;
+    color: #cbd5e1;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tradeBtn:hover {
+    background: rgba(111, 66, 193, 0.2);
+    border-color: #8a5cf6;
+    color: white;
+}
+
+.tradeBtn.active {
+    background: rgba(111, 66, 193, 0.3);
+    border-color: #8a5cf6;
+    color: white;
+}
+
+.actionBtn,
+.bridgeBtn {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, #6f42c1, #8a5cf6);
+    border: none;
+    border-radius: 16px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.actionBtn:hover,
+.bridgeBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(138, 92, 246, 0.4);
+}
+
+.networkSelector {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.networkOption {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(111, 66, 193, 0.3);
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.networkOption:hover {
+    background: rgba(111, 66, 193, 0.2);
+    border-color: #8a5cf6;
+}
+
+.networkOption.selected {
+    background: rgba(111, 66, 193, 0.3);
+    border-color: #8a5cf6;
+    color: white;
+}
+
+.networkIcon {
+    width: 20px;
+    height: 20px;
+    filter: drop-shadow(0 0 2px rgba(138, 92, 246, 0.5));
+}

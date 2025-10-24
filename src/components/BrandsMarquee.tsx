@@ -17,10 +17,20 @@ const BRANDS = [
     { id: '_wax', name: 'wax', icon: 'token:arbitrum-onecryptocurrency-color:wax' },
     { id: '_usdt', name: 'usdt', icon: 'cryptocurrency-color:usdt' },
     { id: '_ren', name: 'ren', icon: 'cryptocurrency-color:ren' },
-    { id: '_arbitrum', name: 'Arbitrum', icon: 'token:arbitrum-one' },
-    { id: '_arbitrum', name: 'Arbitrum', icon: 'token:arbitrum-one' },
-    { id: '_arbitrum', name: 'Arbitrum', icon: 'token:arbitrum-one' },
-    { id: '_arbitrum', name: 'Arbitrum', icon: 'token:arbitrum-one' },
+    { id: '_btcp', name: 'btcp', icon: 'cryptocurrency-color:btcp' },
+    { id: '_uni2', name: 'uni2', icon: 'cryptocurrency:uni' },
+    { id: '_shib', name: 'shib', icon: 'token-branded:shib' },
+    { id: '_uniswap', name: 'uniswap', icon: 'token-branded:uniswap' },
+    { id: '_metamask2', name: 'metamask2', icon: 'token-branded:metamask' },
+    { id: '_fx', name: 'fx', icon: 'token-branded:fx' },
+    { id: '_bitcoin', name: 'bitcoin', icon: 'token-branded:bitcoin' },
+    { id: '_atom2', name: 'atom2', icon: 'token-branded:atom' },
+    { id: '_1inch2', name: '1inch2', icon: 'token-branded:1inch' },
+    { id: '_binance', name: 'binance', icon: 'token-branded:binance' },
+    { id: '_ape', name: 'ape', icon: 'token-branded:ape' },
+    { id: '_uniswap', name: 'uniswap', icon: 'token-branded:uniswap' },
+    { id: '_uniswap', name: 'uniswap', icon: 'token-branded:uniswap' },
+
 ];
 
 export function BrandsMarquee() {

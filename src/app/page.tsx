@@ -141,6 +141,29 @@ export default function HomePage() {
             >
               Play Games
             </Link>
+            <Link
+              href="/trade"
+              className="nav-button"
+              style={{
+                padding: '0.9rem 2rem',
+                background: 'white',
+                color: 'var(--accent)',
+                borderRadius: '16px',
+                fontWeight: '700',
+                textDecoration: 'none',
+                border: '1px solid var(--accent)',
+                transition: 'all 0.3s cubic-bezier(0.2, 0, 0, 1)',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px) scale(1.02)';
+                (e.currentTarget as HTMLElement).style.background = 'rgba(126, 34, 206, 0.04)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.transform = 'translateY(0) scale(1)';
+                (e.currentTarget as HTMLElement).style.background = 'white';
+              }}>
+              Trade & Bridge
+            </Link>
           </div>
         </div>
 

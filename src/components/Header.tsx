@@ -87,6 +87,31 @@ export default function Header() {
                             minWidth: 0,
                         }}>
                             <Link
+                                href="/trade"
+                                style={{
+                                    padding: '0.5rem 1rem',
+                                    background: 'transparent',
+                                    color: 'var(--accent)',
+                                    borderRadius: '10px',
+                                    fontWeight: '600',
+                                    textDecoration: 'none',
+                                    border: '1px solid var(--accent)',
+                                    transition: 'background 0.2s, color 0.2s',
+                                    position: 'relative',
+                                    paddingBottom: '2px',
+                                }}
+                                onMouseEnter={(e) => {
+                                    (e.currentTarget as HTMLElement).style.background = 'rgba(126, 34, 206, 0.08)';
+                                    (e.currentTarget as HTMLElement).style.color = 'var(--accent-hover)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    (e.currentTarget as HTMLElement).style.background = 'transparent';
+                                    (e.currentTarget as HTMLElement).style.color = 'var(--accent)';
+                                }}
+                            >
+                                Trade & Bridge
+                            </Link>
+                            <Link
                                 href="/profile"
                                 style={{
                                     padding: '0.5rem 1rem',
